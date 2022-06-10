@@ -2,27 +2,33 @@ import React from "react";
 import Input from "../Input/Input";
 import SelectType from "../Select/selectType";
 import { SelectComp, Content } from "./styles";
-const SelectComponent = ({Focus, onChange, handleFocus}: {Focus: any, onChange: any, handleFocus:any}) => {
-
-
-    const options = [
-        {
-            id: "1",
-            option: "Select ..."
-        },
-        {
-            id: "2",
-            option: "Male",
-        },
-        {
-            id: "3",
-            option: "Female"
-        },
-        {
-            id: "4",
-            option: "prefer not to say"
-        },
-    ]
+const SelectComponent = ({
+  Focus,
+  onChange,
+  handleFocus,
+}: {
+  Focus: any;
+  onChange: any;
+  handleFocus: any;
+}) => {
+  const options = [
+    {
+      id: "1",
+      option: "Select ...",
+    },
+    {
+      id: "2",
+      option: "Male",
+    },
+    {
+      id: "3",
+      option: "Female",
+    },
+    {
+      id: "4",
+      option: "prefer not to say",
+    },
+  ];
   return (
     <SelectComp>
       <Content>
@@ -45,18 +51,16 @@ const SelectComponent = ({Focus, onChange, handleFocus}: {Focus: any, onChange: 
         </span>
         <br />
         <br />
-        <SelectType 
-        title='Gender'
-        errorMessage=''
-        required= {false}
-        onChange={onChange}
-        Focus={Focus}
-        handleFocus={handleFocus}
-        options= {options}
+        <SelectType
+          title="Gender"
+          errorMessage=""
+          required={false}
+          onChange={onChange}
+          Focus={Focus}
+          handleFocus={handleFocus}
+          options={options}
         />
-      
       </Content>
-
     </SelectComp>
   );
 };

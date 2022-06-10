@@ -9,7 +9,9 @@ const InputForm = ({
   Resume,
   onChange,
   Focus,
-  handleFocus
+  handleFocus,
+  register,
+  errors
 }: {
   title: any;
   data: any;
@@ -17,6 +19,8 @@ const InputForm = ({
   onChange: any;
   Focus: any;
   handleFocus:any;
+  register:any;
+  errors:any;
 }) => {
   //get pdf
   const [pdfUpload, setPdfUpload] = useState(null);
@@ -28,6 +32,8 @@ const InputForm = ({
       {data.map((items: any) => {
         return (
           <Input
+          errors={errors}
+          register={register}
             key={items.id}
             {...items}
             onChange={onChange}

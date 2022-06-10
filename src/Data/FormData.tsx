@@ -39,6 +39,7 @@ export const Data = [
         errorMessage: "",
         name: "currentCompany",
         // pattern: "^[0-9]{10}$",
+        required: false,
       },
     ],
   },
@@ -54,6 +55,7 @@ export const Data = [
         name: "linkdIn",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
+        required: false,
       },
       {
         id: 2,
@@ -63,6 +65,7 @@ export const Data = [
         name: "twitter",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
+        required: false,
       },
       {
         id: 3,
@@ -72,6 +75,7 @@ export const Data = [
         name: "gitHub",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
+        required: false,
       },
       {
         id: 4,
@@ -81,6 +85,7 @@ export const Data = [
         name: "portfolio",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
+        required: false,
       },
       {
         id: 5,
@@ -90,6 +95,7 @@ export const Data = [
         name: "otherWebsite",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
+        required: false,
       },
     ],
   },

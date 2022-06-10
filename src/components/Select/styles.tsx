@@ -10,7 +10,7 @@ export const InputComponent = styled.div`
   width: 100%;
   height: max-content;
   padding: 1.75rem 0;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
 
   div {
     display: flex;

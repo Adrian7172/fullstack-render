@@ -10,6 +10,8 @@ const Input = ({
   name,
   Focus,
   handleFocus,
+  register,
+  errors,
 }: {
   type: string;
   title: string;
@@ -19,8 +21,10 @@ const Input = ({
   name: any;
   Focus: any;
   handleFocus: any;
+  register: any;
+  errors: any;
 }) => {
-  errorMessage = "";
+  console.log(errors.fullName);
   return (
     <InputComponent>
       <div>
@@ -30,22 +34,17 @@ const Input = ({
 
         <TakeInput>
           <input
+            {...register(`${name}`, { required: required })}
             type={type}
-            className={errorMessage ? "input border" : "input"}
+            className={errors.name ? "input border" : "input"}
             onChange={onChange}
             name={name}
             onBlur={handleFocus}
             data-focused={Focus.toString()}
-          >
-
-
-
-          </input>
+          ></input>
         </TakeInput>
       </div>
-      <div className={errorMessage ? "error" : "display error"}>
-        Please Enter a valid email address
-      </div>
+      {errors.name && <div className="error">{errorMessage}</div>}
     </InputComponent>
   );
 };
