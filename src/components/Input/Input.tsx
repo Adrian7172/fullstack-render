@@ -1,4 +1,6 @@
 import React from "react";
+import { UseFormRegister, FieldErrors, Path } from "react-hook-form";
+import { Inputs } from "../Form/Form";
 import { InputComponent, TakeInput } from "./styles";
 
 const Input = ({
@@ -6,23 +8,18 @@ const Input = ({
   title,
   errorMessage,
   required,
-  onChange,
   name,
-  Focus,
-  handleFocus,
   register,
   errors,
 }: {
   type: string;
   title: string;
   errorMessage: string;
-  required: Boolean;
-  onChange: any;
-  name: any;
-  Focus: any;
-  handleFocus: any;
-  register: any;
-  errors: any;
+  required: boolean;
+  // types for these
+  name: Path<Inputs>;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
 }) => {
   console.log(errors.fullName);
   return (
@@ -36,15 +33,13 @@ const Input = ({
           <input
             {...register(`${name}`, { required: required })}
             type={type}
-            className={errors.name ? "input border" : "input"}
-            onChange={onChange}
+            // need to be dynamic key allocation error.fullName won't work
+            className={errors[name] ? "input border" : "input"}
             name={name}
-            onBlur={handleFocus}
-            data-focused={Focus.toString()}
           ></input>
         </TakeInput>
       </div>
-      {errors.name && <div className="error">{errorMessage}</div>}
+      {errors[name] && <div className="error">{errorMessage}</div>}
     </InputComponent>
   );
 };
