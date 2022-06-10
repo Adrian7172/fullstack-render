@@ -1,26 +1,24 @@
 import { useState } from "react";
+import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
 import Input from "../Input/Input";
 import Attacher from "../PdfAttacher/Attacher";
 import { InputFormComponent, Heading } from "./styles";
+import { Inputs } from "../Form/Form";
 
 const InputForm = ({
   title,
   data,
   Resume,
-  onChange,
-  Focus,
   handleFocus,
   register,
-  errors
+  errors,
 }: {
-  title: any;
+  title: string;
   data: any;
   Resume: Boolean;
-  onChange: any;
-  Focus: any;
-  handleFocus:any;
-  register:any;
-  errors:any;
+  handleFocus: any;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
 }) => {
   //get pdf
   const [pdfUpload, setPdfUpload] = useState(null);
@@ -32,12 +30,10 @@ const InputForm = ({
       {data.map((items: any) => {
         return (
           <Input
-          errors={errors}
-          register={register}
+            errors={errors}
+            register={register}
             key={items.id}
             {...items}
-            onChange={onChange}
-            Focus={Focus}
             handleFocus={handleFocus}
           />
         );
