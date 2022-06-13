@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useForm } from "react-hook-form";
-// import * as yup from 'yup'
-// import { yupResolver } from '@hookform/resolvers/yup';
+
 import { Button } from "@mantine/core";
 import InputForm from "../InputForm/InputForm";
 import { FormComponent, ButtonContainer } from "./styles";
@@ -45,11 +44,14 @@ export interface Inputs {
 
 const Form = () => {
   const [varified, setVarified] = useState(false);
+  const [File, setFile] = useState("Attach Resume/cv");
+  const [resetAll, setResetAll] = useState(false)
+
 
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
     formState,
   } = useForm<Inputs>();
@@ -87,14 +89,15 @@ const Form = () => {
           });
         };
         getResumeURL();
-        alert("Submited Sucessfully");
+        let value =alert("Submited Sucessfully");
+        console.log(value)
       } catch (error) {
         console.log(error);
       }
     }
   });
 
-  // console.log(errors.fullName)
+
 
   return (
     <FormComponent onSubmit={HandleSubmit}>
@@ -103,9 +106,10 @@ const Form = () => {
           <InputForm
             key={items.id}
             {...items}
-            watch={watch}
             errors={errors}
             register={register}
+            File={File}
+            setFile={setFile}
           />
         );
       })}

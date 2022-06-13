@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import { UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 import { Inputs } from "../Form/Form";
 import { AttacherComponent, TakeInput } from "./styles";
-import { Ref } from "react-hook-form";
-import { Input } from "@mantine/core";
 
 const Attacher = ({
   register,
   errors,
-  watch,
+  File,
+  setFile,
 }: {
   register: UseFormRegister<Inputs>;
   errors: FieldErrors<Inputs>;
-  watch: UseFormWatch<Inputs>;
+  File: any,
+  setFile: any
 }) => {
   const [error, setError] = useState("");
-  const [File, setFile] = useState("Attach Resume/cv");
 
   //Handle pdf file upload
   let filetype = ["application/pdf"];

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { FieldErrors, Path, UseFormRegister, UseFormWatch } from "react-hook-form";
+import {
+  FieldErrors,
+  Path,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import Input from "../Input/Input";
 import Attacher from "../PdfAttacher/Attacher";
 import { InputFormComponent, Heading } from "./styles";
@@ -11,25 +16,29 @@ const InputForm = ({
   Resume,
   register,
   errors,
-  watch,
-  file,
-  setFile
+  File,
+  setFile,
 }: {
   title: string;
   data: any;
   Resume: Boolean;
-  file:any,
-  setFile: any,
   register: UseFormRegister<Inputs>;
   errors: FieldErrors<Inputs>;
-  watch: UseFormWatch<Inputs>
+  watch: UseFormWatch<Inputs>;
+  File: any;
+  setFile: any;
 }) => {
-
-
   return (
     <InputFormComponent>
       <Heading>{title}</Heading>
-      {Resume && <Attacher  watch = {watch} errors={errors}  register={register}/>}
+      {Resume && (
+        <Attacher
+          errors={errors}
+          register={register}
+          File={File}
+          setFile={setFile}
+        />
+      )}
       {data.map((items: any) => {
         return (
           <Input
@@ -37,8 +46,6 @@ const InputForm = ({
             register={register}
             key={items.id}
             {...items}
-            File= {File}
-            setFile = {setFile}
           />
         );
       })}

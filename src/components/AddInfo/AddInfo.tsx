@@ -20,7 +20,7 @@ const AddInfo = ({
         className={errors[name] ? "border": ""}
           {...register(`${name}`, {
             required: false,
-            pattern: /^[a-zA-Z0-9,.-=+()&]{10,50}$/i,
+            pattern: /^[a-zA-Z0-9, .-=+()&]{10,50}$/i,
           })}
           placeholder="Add a cover letter or anything else you want to share."
         ></TextArea>
