@@ -11,6 +11,7 @@ const Input = ({
   name,
   register,
   errors,
+  pattern,
 }: {
   type: string;
   title: string;
@@ -20,8 +21,8 @@ const Input = ({
   name: Path<Inputs>;
   register: UseFormRegister<Inputs>;
   errors: FieldErrors<Inputs>;
+  pattern: RegExp;
 }) => {
-  console.log(errors.fullName);
   return (
     <InputComponent>
       <div>
@@ -31,7 +32,7 @@ const Input = ({
 
         <TakeInput>
           <input
-            {...register(`${name}`, { required: required })}
+            {...register(`${name}`, { required: required, pattern: pattern })}
             type={type}
             // need to be dynamic key allocation error.fullName won't work
             className={errors[name] ? "input border" : "input"}

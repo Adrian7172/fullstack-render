@@ -1,31 +1,35 @@
 import React from "react";
 import Input from "../Input/Input";
 import SelectType from "../Select/selectType";
+import { UseFormRegister, FieldErrors, Path } from "react-hook-form";
+import { Inputs } from "../Form/Form";
 import { SelectComp, Content } from "./styles";
 const SelectComponent = ({
-  Focus,
-  onChange,
-  handleFocus,
+  errors,
+  register,
 }: {
-  Focus: any;
-  onChange: any;
-  handleFocus: any;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
 }) => {
   const options = [
     {
       id: "1",
+      value: "",
       option: "Select ...",
     },
     {
       id: "2",
+      value: "Male",
       option: "Male",
     },
     {
       id: "3",
+      value: "Female",
       option: "Female",
     },
     {
       id: "4",
+      value: "prefer not to say",
       option: "prefer not to say",
     },
   ];
@@ -53,12 +57,11 @@ const SelectComponent = ({
         <br />
         <SelectType
           title="Gender"
-          errorMessage=""
+          errorMessage="Please select any one of them"
           required={false}
-          onChange={onChange}
-          Focus={Focus}
-          handleFocus={handleFocus}
           options={options}
+          register = {register}
+          errors = {errors}
         />
       </Content>
     </SelectComp>

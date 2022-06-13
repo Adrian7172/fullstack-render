@@ -1,25 +1,28 @@
 import React from "react";
+import { UseFormRegister, FieldErrors, Path } from "react-hook-form";
+import { Inputs } from "../Form/Form";
 import { InputComponent, TakeInput } from "./styles";
-import { BsChevronDown} from "react-icons/bs"
+import { BsChevronDown } from "react-icons/bs";
 
 const SelectType = ({
   title,
   errorMessage,
   required,
-  onChange,
-  Focus,
-options,
-handleFocus
+  register,
+  errors,
+  options,
 }: {
   title: string;
   errorMessage: string;
   required: Boolean;
-  onChange: any;
-  Focus: any;
-options: any;
-handleFocus: any;
+  options: any;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
 }) => {
+  // const option = "option"
+  console.log(errors.option)
   return (
+
     <>
       <InputComponent>
         <div>
@@ -28,22 +31,21 @@ handleFocus: any;
           </span>
 
           <TakeInput>
-            <select 
-              className={errorMessage ? "input border" : "input"}
-              onChange={onChange}
-              onBlur={handleFocus}
-              data-focused={Focus.toString()}
+            <select
+             {...register("option", {
+              required: true
+           })}
+              className={errors.option ? "select border" :  "select"}
             >
-              {options.map(({id, option}: {id:any, option: any}) =>{
-                  return <option key={id} >{option}</option>
+              {options.map(({ id, option, value }: { id: any; option: string; value: string }) => {
+                return <option key={id} value= {value}>{option}</option>;
               })}
-
             </select>
-            <BsChevronDown  className="right-icon"/>
+            <BsChevronDown className="right-icon" />
           </TakeInput>
         </div>
-        <div className={errorMessage ? "error" : "display error"}>
-          Please Enter a valid email address
+        <div className={ errors.option ? "error" : "display error"}>
+          {errorMessage}
         </div>
       </InputComponent>
     </>

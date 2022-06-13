@@ -12,6 +12,23 @@ export const Content = styled.div`
   height: max-content;
   margin: auto;
 
+  .border{
+    border: 1px solid red !important;
+  }
+
+  .error {
+    width: max-content;
+    height: max-content;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+    margin-top: 0.5rem;
+    font-size: 14px;
+    letter-spacing: 0.05rem;
+    color: red;
+    width: 100%;
+  }
+
   h1 {
     font: normal 700 1.6rem/1.4 Lato;
     text-transform: uppercase;
@@ -20,7 +37,7 @@ export const Content = styled.div`
     margin-bottom: 4rem;
   }
 
-  hr{
+  hr {
     margin-top: 5rem;
     margin-bottom: 5rem;
     border: 1px solid #e3e4e6;

@@ -9,9 +9,9 @@ export const Data = [
         type: "text",
         title: "Full name",
         errorMessage:
-          "Name should be 5-20 character and shouldn't include any special character or number",
+          "Name should be 10-50 character and shouldn't include any special character or number",
         name: "fullName",
-        pattern: "^[a-zA-Z ]{10,20}$",
+        pattern: /^[a-zA-Z ]{10,50}$/i,
         required: true,
       },
       {
@@ -20,6 +20,7 @@ export const Data = [
         title: "Email",
         errorMessage: "Please enter a valid email address!",
         name: "email",
+        pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/i,
         required: true,
       },
 
@@ -27,18 +28,19 @@ export const Data = [
         id: 3,
         type: "tel",
         title: "Phone",
-        errorMessage: "Please enter a valid phone number",
+        errorMessage: "Please enter a valid phone number(with country code)",
         name: "phone",
-        pattern: "^[0-9]{10}$",
+        pattern: /^\+[1-9]{1}[0-9]{3,14}$/i,
         required: true,
       },
       {
         id: 4,
         type: "text",
         title: "Current company",
-        errorMessage: "",
+        errorMessage:
+          "Company name Should be greater than 4 character and should not include any number and special character",
+        pattern: /^[a-zA-Z ]{4,50}$/i,
         name: "currentCompany",
-        // pattern: "^[0-9]{10}$",
         required: false,
       },
     ],
@@ -53,8 +55,7 @@ export const Data = [
         title: "Linkdin URL",
         errorMessage: "Please enter a valid LinkdIn URL",
         name: "linkdIn",
-        // pattern: "^[a-zA-Z ]{5,20}$",
-        // required: true,
+        pattern: /http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?/,
         required: false,
       },
       {
@@ -62,9 +63,8 @@ export const Data = [
         type: "text",
         title: "Twitter URL",
         errorMessage: "Please enter a valid Twitter URL",
+        pattern: /http(s)?:\/\/([\w]+\.)?twitter\.com\/[A-z0-9_-]+\/?/,
         name: "twitter",
-        // pattern: "^[a-zA-Z ]{5,20}$",
-        // required: true,
         required: false,
       },
       {
@@ -72,6 +72,7 @@ export const Data = [
         type: "text",
         title: "GitHub URL",
         errorMessage: "Please enter a valid GitHub URL",
+        pattern: /http(s)?:\/\/([\w]+\.)?github\.com\/[A-z0-9_-]+\/?/,
         name: "gitHub",
         // pattern: "^[a-zA-Z ]{5,20}$",
         // required: true,
@@ -83,8 +84,9 @@ export const Data = [
         title: "Portfolio URL",
         errorMessage: "Please enter a valid Portfolio URL",
         name: "portfolio",
-        // pattern: "^[a-zA-Z ]{5,20}$",
-        // required: true,
+        pattern:
+          /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+
         required: false,
       },
       {
@@ -93,8 +95,9 @@ export const Data = [
         title: "Other website",
         errorMessage: "Please enter a valid URL",
         name: "otherWebsite",
-        // pattern: "^[a-zA-Z ]{5,20}$",
-        // required: true,
+        pattern:
+          /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+
         required: false,
       },
     ],

@@ -77,7 +77,11 @@ export const TakeInput = styled.div`
     height: 100%;
   }
 
-  select {
+  .border{
+    border: 1px solid red !important;
+  }
+
+  .select {
     line-height: 1.4;
     color: #515357;
     background: #e2e2e2;
