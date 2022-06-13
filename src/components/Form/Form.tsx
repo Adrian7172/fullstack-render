@@ -68,6 +68,7 @@ const Form = () => {
 
       try {
         const res = await addDoc(collection(db, "applications"), {
+          // resumeLink: "",
           fullName: data.fullName,
           email: data.email,
           phone: data.phone,
@@ -84,13 +85,12 @@ const Form = () => {
           getDownloadURL(upload.snapshot.ref).then(async (url) => {
             console.log(`resume url ${url}`);
             await updateDoc(doc(db, "applications", res.id), {
-              resumeURL: (data.resumeLink = url),
+              resumeURL: url,
             });
           });
         };
         getResumeURL();
-        let value =alert("Submited Sucessfully");
-        console.log(value)
+        alert("Submited Sucessfully");
       } catch (error) {
         console.log(error);
       }
