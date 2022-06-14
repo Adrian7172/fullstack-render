@@ -6,15 +6,16 @@ export const AttacherComponent = styled.div`
   position: relative;
   width: 100%;
   height: max-content;
-  /* background-color: blue; */
+
   @media screen and (max-width: 800px) {
-    margin-left: 1rem;
+    margin-bottom: 2rem;
   }
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    padding: 0;
-    justify-content: flex-start;
+    padding-left: 0;
+    justify-content: center;
+    margin-bottom: 5rem;
   }
 
   .label {
@@ -23,7 +24,10 @@ export const AttacherComponent = styled.div`
     width: 21rem;
     vertical-align: middle;
     margin: 1.75rem 0;
-    /* background-color: yellow; */
+    @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+
   }
   .star {
     width: max-content;
@@ -46,11 +50,12 @@ export const TakeInput = styled.div`
   width: 48.9rem;
   padding-left: 1.5rem;
   height: max-content;
-  @media screen and (max-width: 800px) {
+
+  @media screen and (max-width: 600px) {
     padding: 0;
-    /* background-color: red; */
-    margin: 0;
+    width: 100%;
   }
+
 
   .error {
     margin-left: 1rem;
@@ -72,6 +77,7 @@ export const TakeInput = styled.div`
     height: 2rem;
     border-radius: 0.3rem;
     opacity: 0;
+    
   }
 
   .border{

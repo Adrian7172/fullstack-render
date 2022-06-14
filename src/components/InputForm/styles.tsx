@@ -6,6 +6,11 @@ export const InputFormComponent = styled.section`
   height: max-content;
   margin: auto;
   padding: 2rem 0;
+
+  @media screen and (max-width: 800px) {
+    padding-left: 1.5rem;
+    width: 100%;
+  }
 `;
 
 export const Heading = styled.h1`

@@ -8,6 +8,14 @@ margin: auto;
 padding-left: 22.4rem;
 margin-bottom: 5rem;
 
+@media screen and (max-width: 800px) {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
 .error {
     width: max-content;
     height: max-content;
@@ -18,7 +26,7 @@ margin-bottom: 5rem;
     font-size: 14px;
     letter-spacing: 0.05rem;
     color: red;
-    width: 100%;
+    width: max-content;
   }
 
 

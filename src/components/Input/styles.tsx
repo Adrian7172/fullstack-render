@@ -10,10 +10,8 @@ export const InputComponent = styled.div`
   width: 100%;
   height: max-content;
   padding: 1.75rem 0;
-  /* background-color: #ff794f; */
 
   @media screen and (max-width: 800px) {
-    margin-left: 1rem;
     width: 100%;
   }
 
@@ -25,10 +23,10 @@ export const InputComponent = styled.div`
     height: max-content;
     position: relative;
     box-sizing: border-box;
-    /* background-color: green; */
     @media screen and (max-width: 800px) {
-    flex-direction: column;
-  }
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   .label {
@@ -36,6 +34,11 @@ export const InputComponent = styled.div`
     line-height: 1.4;
     width: 29.3rem;
     vertical-align: middle;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
   }
   .star {
     width: max-content;
@@ -75,6 +78,12 @@ export const TakeInput = styled.div`
   padding-left: 1.5rem;
   height: max-content;
 
+  @media screen and (max-width: 800px) {
+    padding: 0;
+  }
+
+ 
+
   .input {
     line-height: 1.4;
     color: #515357;
@@ -88,6 +97,11 @@ export const TakeInput = styled.div`
     height: 4rem;
     padding: 0.4rem 0.4rem 0.4rem 1.5rem;
     border-color: #e2e2e2;
+
+    @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
 
     &:focus {
       border: 1px solid black;

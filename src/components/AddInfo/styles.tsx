@@ -5,12 +5,20 @@ export const AddInfoComponent = styled.section`
   background: #f9f9f9;
   padding-top: 10rem;
   height: max-content;
+
+  @media screen and (max-width: 800px) {
+   padding-left: 1.5rem;
+  }
 `;
 
 export const Content = styled.div`
   width: 76rem;
   height: max-content;
   margin: auto;
+
+  @media screen and (max-width: 800px) {
+   width: 100%;
+  }
 
   .border{
     border: 1px solid red !important;
@@ -56,6 +64,10 @@ export const TextArea = styled.textarea`
   border-radius: 0.3rem;
   border-color: #e2e2e2;
   outline: none;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
   &:focus {
     border: 1px solid black;
   }

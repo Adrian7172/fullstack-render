@@ -4,6 +4,9 @@ export const SelectComp = styled.section`
   width: 100%;
   height: max-content;
   background: #f9f9f9;
+  @media screen and (max-width: 800px) {
+   padding-left: 1.5rem;
+  }
 `;
 
 export const Content = styled.div`

@@ -13,7 +13,15 @@ export const ButtonContainer = styled.div`
     height: max-content;
     margin: auto;
     padding-left: 25.5rem;
-    margin-bottom: 10rem;
+    padding-bottom: 10rem;
+
+    @media screen and (max-width: 800px) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
 
 
     .button{

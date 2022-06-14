@@ -11,7 +11,7 @@ export const InputComponent = styled.div`
   height: max-content;
   padding: 1.75rem 0;
   margin-bottom: 3rem;
-
+  
   div {
     display: flex;
     align-items: center;
@@ -20,6 +20,10 @@ export const InputComponent = styled.div`
     height: max-content;
     position: relative;
     box-sizing: border-box;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      margin-top: 2rem;
+    }
   }
 
   .label {
@@ -27,6 +31,10 @@ export const InputComponent = styled.div`
     line-height: 1.4;
     width: 29.3rem;
     vertical-align: middle;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+  }
   }
   .star {
     width: max-content;
@@ -66,6 +74,12 @@ export const TakeInput = styled.div`
   width: max-content;
   padding-left: 1.5rem;
   height: max-content;
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+ 
 
   .right-icon {
     position: absolute;
@@ -75,6 +89,9 @@ export const TakeInput = styled.div`
 
     width: 3rem;
     height: 100%;
+    @media screen and (max-width: 800px) {  
+      right: 2rem;
+    }
   }
 
   .border{
@@ -91,7 +108,6 @@ export const TakeInput = styled.div`
     border-radius: 0.3rem;
     border-width: 0.1rem;
     border-style: solid;
-    width: 100%;
     width: 47.4rem;
     padding: 0.4rem 0.4rem 0.4rem 1.5rem;
     height: 4rem;
@@ -99,6 +115,11 @@ export const TakeInput = styled.div`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    @media screen and (max-width: 800px) {
+    width: 100%;
+    
+  }
     
     &:hover {
       background-color: lightgray;
