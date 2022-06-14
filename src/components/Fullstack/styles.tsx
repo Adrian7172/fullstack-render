@@ -6,6 +6,11 @@ export const FullstackComponent = styled.section`
   height: max-content;
   margin: auto;
   margin-bottom: 4.5rem;
+  /* background-color: green; */
+
+  @media screen and (max-width: 800px) {
+    margin-left: 1rem;
+  }
 `;
 
 export const Heading = styled.h1`

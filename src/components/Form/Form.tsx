@@ -12,6 +12,7 @@ import Recaptcha from "../Rechaptcha/Recaptcha";
 
 import { db } from "../../firebase";
 import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import axios from 'axios';
 
 import {
   getStorage,
@@ -19,6 +20,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import Footer from "../Footer/Footer";
 
 enum GenderEnum {
   select = "select",
@@ -45,8 +47,7 @@ export interface Inputs {
 const Form = () => {
   const [varified, setVarified] = useState(false);
   const [File, setFile] = useState("Attach Resume/cv");
-  const [resetAll, setResetAll] = useState(false)
-
+  const [resetAll, setResetAll] = useState(false);
 
   const {
     register,
@@ -68,7 +69,6 @@ const Form = () => {
 
       try {
         const res = await addDoc(collection(db, "applications"), {
-          // resumeLink: "",
           fullName: data.fullName,
           email: data.email,
           phone: data.phone,
@@ -81,6 +81,33 @@ const Form = () => {
           option: data.option,
           AddtionalInfo: data.AddtionalInfo,
         });
+
+        const uploadToStrapi = async (data: any) => {
+          const sendData = {
+            fullName: data.fullName,
+            Email: data.email,
+            PhoneNumber: data.phone,
+            currentCompany: data.currentCompany,
+            linkedinURL: data.linkdIn,
+            twitterURL: data.twitter,
+            gitHubURL: data.gitHub,
+            portfolioURL: data.portfolio,
+            otherWebsiteURL: data.otherWebsite,
+            option: data.option,
+            AddtionalInfo: data.AddtionalInfo,
+          };
+          // const file = data.files[0];
+
+          const request = new XMLHttpRequest();
+          const formData = new FormData();
+          // formData.append("ResumeFile", file, file.name);
+
+          formData.append("data", JSON.stringify(sendData));
+
+          request.open("POST", `http://localhost:1337/api/render-data`);
+          request.send(formData);
+        };
+
         const getResumeURL = async () => {
           getDownloadURL(upload.snapshot.ref).then(async (url) => {
             console.log(`resume url ${url}`);
@@ -89,6 +116,7 @@ const Form = () => {
             });
           });
         };
+        uploadToStrapi(data);
         getResumeURL();
         alert("Submited Sucessfully");
       } catch (error) {
@@ -96,8 +124,6 @@ const Form = () => {
       }
     }
   });
-
-
 
   return (
     <FormComponent onSubmit={HandleSubmit}>
@@ -128,6 +154,8 @@ const Form = () => {
           Submit Application
         </Button>
       </ButtonContainer>
+
+    <Footer />
     </FormComponent>
   );
 };

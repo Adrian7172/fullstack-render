@@ -6,6 +6,16 @@ export const AttacherComponent = styled.div`
   position: relative;
   width: 100%;
   height: max-content;
+  /* background-color: blue; */
+  @media screen and (max-width: 800px) {
+    margin-left: 1rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+  }
 
   .label {
     font-size: 16px;
@@ -13,6 +23,7 @@ export const AttacherComponent = styled.div`
     width: 21rem;
     vertical-align: middle;
     margin: 1.75rem 0;
+    /* background-color: yellow; */
   }
   .star {
     width: max-content;
@@ -35,6 +46,11 @@ export const TakeInput = styled.div`
   width: 48.9rem;
   padding-left: 1.5rem;
   height: max-content;
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    /* background-color: red; */
+    margin: 0;
+  }
 
   .error {
     margin-left: 1rem;

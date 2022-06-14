@@ -9,6 +9,8 @@ export const Header = styled.div`
   overflow: hidden;
   height: 11rem;
   box-sizing: border-box;
+
+
 `;
 
 export const HeaderContent = styled.div`
@@ -18,6 +20,10 @@ export const HeaderContent = styled.div`
   margin: auto;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    margin-left: 1rem;
+  }
 
   img {
     height: 7.7rem;

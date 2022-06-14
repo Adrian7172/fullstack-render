@@ -10,6 +10,12 @@ export const InputComponent = styled.div`
   width: 100%;
   height: max-content;
   padding: 1.75rem 0;
+  /* background-color: #ff794f; */
+
+  @media screen and (max-width: 800px) {
+    margin-left: 1rem;
+    width: 100%;
+  }
 
   div {
     display: flex;
@@ -19,6 +25,10 @@ export const InputComponent = styled.div`
     height: max-content;
     position: relative;
     box-sizing: border-box;
+    /* background-color: green; */
+    @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
   }
 
   .label {
