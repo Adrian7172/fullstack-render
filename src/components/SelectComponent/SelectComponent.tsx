@@ -58,7 +58,7 @@ const SelectComponent = ({
         <SelectType
           title="Gender"
           errorMessage="Please select any one of them"
-          required={false}
+          required={true}
           options={options}
           register = {register}
           errors = {errors}

@@ -47,7 +47,6 @@ export interface Inputs {
 const Form = () => {
   const [varified, setVarified] = useState(false);
   const [File, setFile] = useState("Attach Resume/cv");
-  const [resetAll, setResetAll] = useState(false);
 
   const {
     register,
@@ -61,11 +60,10 @@ const Form = () => {
   const HandleSubmit = handleSubmit(async (data: any) => {
     applicationUpload(data);
     async function applicationUpload(data: any) {
-      const resume = data.files[0];
-      console.log(resume);
+      const file = data.files[0];
       const storage = getStorage();
-      const storageRef = ref(storage, resume.name);
-      const upload = uploadBytesResumable(storageRef, resume);
+      const storageRef = ref(storage, file.name);
+      const upload = uploadBytesResumable(storageRef, file);
 
       try {
         const res = await addDoc(collection(db, "applications"), {
