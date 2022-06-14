@@ -63,6 +63,11 @@ export const InputComponent = styled.div`
     letter-spacing: 0.05rem;
     color: red;
     width: 100%;
+
+    @media screen and (max-width: 800px) {
+      padding: 0;
+      
+  }
   }
 
   .display {
