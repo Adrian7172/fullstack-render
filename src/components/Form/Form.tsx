@@ -90,10 +90,10 @@ const Form = () => {
           });
         };
         
-        console.log("this is resume" ,resume)
+        // console.log("this is resume" ,resume)
         const uploadToStrapi = async (data: any) => {
           const sendData = {
-            Resume: resume,
+            // Resume: resume,
             fullName: data.fullName,
             Email: data.email,
             PhoneNumber: data.phone,
@@ -106,13 +106,19 @@ const Form = () => {
             option: data.option,
             AddtionalInfo: data.AddtionalInfo,
           };
+          const file = data.files[0];
           const request = new XMLHttpRequest();
           const formData = new FormData();
 
+
+          formData.append("files.resumefile", file );
           formData.append("data", JSON.stringify(sendData));
 
           request.open("POST", `http://localhost:1337/api/render-applications`);
+
           request.send(formData);
+
+
         };
 
        
