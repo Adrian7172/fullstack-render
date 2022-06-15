@@ -50,7 +50,7 @@ const Attacher = ({
       </span>
 
       <TakeInput>
-        <input type={"file"}  {...register("files", { required: true, })} onChange= {HandlePdfChange}/>
+        <input type={"file"} id={"inputElement"} {...register("files", { required: true, })} onChange= {HandlePdfChange}/>
         <span className={error? "border attachButton" : "attachButton"}>
           {File === "Attach Resume/cv" && (
             <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16">

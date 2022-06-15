@@ -47,6 +47,7 @@ export interface Inputs {
 const Form = () => {
   const [varified, setVarified] = useState(false);
   const [File, setFile] = useState("Attach Resume/cv");
+  const [resume, setResume] = useState("");
 
   const {
     register,
@@ -64,7 +65,7 @@ const Form = () => {
       const storage = getStorage();
       const storageRef = ref(storage, file.name);
       const upload = uploadBytesResumable(storageRef, file);
-
+      
       try {
         const res = await addDoc(collection(db, "applications"), {
           fullName: data.fullName,
@@ -79,9 +80,20 @@ const Form = () => {
           option: data.option,
           AddtionalInfo: data.AddtionalInfo,
         });
-
+        const getResumeURL = async () => {
+          getDownloadURL(upload.snapshot.ref).then(async (url) => {
+            console.log(`resume url ${url}`);
+            setResume(url);
+            await updateDoc(doc(db, "applications", res.id), {
+              resumeURL: url,
+            });
+          });
+        };
+        
+        console.log("this is resume" ,resume)
         const uploadToStrapi = async (data: any) => {
           const sendData = {
+            Resume: resume,
             fullName: data.fullName,
             Email: data.email,
             PhoneNumber: data.phone,
@@ -94,29 +106,19 @@ const Form = () => {
             option: data.option,
             AddtionalInfo: data.AddtionalInfo,
           };
-          // const file = data.files[0];
-
           const request = new XMLHttpRequest();
           const formData = new FormData();
-          // formData.append("ResumeFile", file, file.name);
 
           formData.append("data", JSON.stringify(sendData));
 
-          request.open("POST", `http://localhost:1337/api/render-data`);
+          request.open("POST", `http://localhost:1337/api/render-applications`);
           request.send(formData);
         };
 
-        const getResumeURL = async () => {
-          getDownloadURL(upload.snapshot.ref).then(async (url) => {
-            console.log(`resume url ${url}`);
-            await updateDoc(doc(db, "applications", res.id), {
-              resumeURL: url,
-            });
-          });
-        };
+       
         uploadToStrapi(data);
         getResumeURL();
-        alert("Submited Sucessfully");
+        alert("Submitted Sucessfully");
       } catch (error) {
         console.log(error);
       }
